@@ -90,12 +90,16 @@ WSGI_APPLICATION = 'notesapp.wsgi.application'
 DATABASES = {
 
     'default': {
+        'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv("DB_NAME"),
-        'USER': os.getenv("DB_USER"),
-        'PASSWORD': os.getenv("DB_PASSWORD"),
-        'HOST': os.getenv("DB_HOST"),
-        'PORT': os.getenv("DB_PORT"),
+        'NAME': 'mydb',  # Replace with your database name
+        'USER': 'user',  # Replace with your database user
+        'PASSWORD': 'root',  # Replace with your database password
+        'HOST': 'hostdb',  # Replace with your database host
+        'PORT': '3306',  # Replace with your database port
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
     }
 }
 
